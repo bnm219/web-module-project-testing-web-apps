@@ -99,7 +99,7 @@ test('renders all firstName, lastName and email text when submitted. Does NOT re
     lastNameInputSetUp('Burk');
     emailInputSetUp('blueBill@hotmail.com');
     clickSubmit();
-    const allErrors = screen.getByTestId('error');
+    const allErrors = screen.findAllByTestId('error');
     expect(allErrors).not.toBeInTheDocument
 });
 
@@ -112,4 +112,8 @@ test('renders all fields text when all fields are submitted.', async () => {
     const firstName = screen.getAllByText('Justin');
     const lastName = screen.getAllByText('Burk');
     const email = screen.getAllByText('blueBill@hotmail.com');
+    expect(firstName).toBeInTheDocument;
+    expect(lastName).toBeInTheDocument;
+    expect(email).toBeInTheDocument;
+
 });
